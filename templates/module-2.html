@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let pitches = {{pitches|tojson}};
+        let moduleId = {{moduleId|tojson}};
+        console.log(pitches);
+        console.log(moduleId);
+    </script>
+
+    <div id="page_title">
+        <div class='row'>
+            <div class='module-page-title col-8'></div>
+            <div class='return-btn-col col-4'>
+                <button type='submit' id='return-btn'>
+                    <img id='return-icon' src="/static/images/graphics/return_icon.png">
+                    &nbsp; Return
+                </button>
+            </div>
+        </div>
+    </div> 
+    <div id="page_content">
+        <div class='instructions row'>
+            <ul>
+                <li>The goal of this minigame is for you to practice what you learned the previous module (1. Flashcards (easy)).</li>
+                <li>For each of the 6 types of pitches, you will be asked to select their speed (slow, medium, or fast) and demonstrate their movement.</li>
+                <li>For each type of pitch perform the following:</li>
+                    <ol>
+                        <li>To select speed: press the circle that represents the speed of that type of pitch.</li>
+                        <li>To demonstrate movement: drag and drop the ball in the correct direction. If the pitch has no movement, you do not need to perform any action for this step.</li>
+                    </ol>
+                <li>After completing both steps, press the <span class="blue bold">Submit</span> button or press the Enter/Return key on your keyboard.</li>
+                <li>After submission you will be told whether you are correct.</li>
+                <li>In order to move on to the next pitch, you must get both the speed and movement correct.</li>
+                <li>Use the <span class="green bold">Next Pitch</span> button to go to attempt the next type of pitch</li>
+                <li>Use the <span class="yellow bold">Restart Pitch</span> button to clear your speed and movement demonstration for the current type of pitch.</li>
+                <li>Use the <span class="red bold">Restart Minigame</span> button to restart the entire minigame (i.e. start with the first type of pitch).</li>
+                <li>Note: Each time the minigame is started/restarted, the order in which each type of pitch appears will be randomized.</li>
+            </ul>
+        </div>
+        <div class='start-btn-row row'>
+            <button type='submit' id='start-btn'>
+                Start
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'module-2.js') }}"></script>    
+    
+{% endblock %}

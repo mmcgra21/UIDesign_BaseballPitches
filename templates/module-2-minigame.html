@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let pitches = {{pitches|tojson}};
+        let moduleId = {{moduleId|tojson}};
+        let game = {{game|tojson}};
+        console.log(pitches);
+        console.log(moduleId);
+        console.log(game);
+    </script>
+
+    <div id="page_title">
+        <div class='row'>
+            <div class='module-page-title col-8'></div>
+            <div class='return-btn-col col-4'>
+                <button type='submit' id='return-btn'>
+                    <img id='return-icon' src="/static/images/graphics/return_icon.png">
+                    &nbsp; Return
+                </button>
+            </div>
+        </div>
+    </div> 
+    <div id="page_content">
+        <div class='row minigame-header'>
+            <div class='col-4 minigame-counter'></div>
+            <div class='col-4 minigame-pitch'></div>
+            <div class='col-4 submit-btn-col'>
+                <button type="submit" id="submit-btn" class="disabled">
+                    Submit
+                </button>
+            </div>
+        </div>
+        <div class='row speed-row'>
+            <div class='row speed-selection'>
+                Speed: &nbsp;
+                <div class='speed-selection-box-container'>
+                    <div class='speed-selection-box-dummy'></div>
+                    <div class='speed-selection-box'></div>
+                </div>
+            </div>
+            <div class='row speed-btns-row'>
+                <div class='col-5'>
+                    <div id='speed-list-row' class='row'>
+                        <div class='col-4 btn'>
+                            <div class='row'><div class="Slow-circle-xx circle"></div></div>
+                            <div class='row speed-name'>Slow</div>
+                        </div>
+                        <div class='col-4 btn'>
+                            <div class='row'><div class="Medium-circle-xx circle"></div></div>
+                            <div class='row speed-name'>Medium</div>
+                        </div>
+                        <div class='col-4 btn'>
+                            <div class='row'><div class="Fast-circle-xx circle"></div></div>
+                            <div class='row speed-name'>Fast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='row minigame-flashcard-row'>
+            <div class='flashcard-page txt-large'>
+                <div class='col-8'>
+                    <div class='row'>
+                        <div class='movement-selection-box-container'>
+                            <div class='movement-selection-box-dummy'></div>
+                            <div class='movement-selection-box'>
+                                <img id='movement-img' src='/static/images/minigame_pitch_diagrams/background.png'>
+                                <div id='Up_Left' class='direction-selection-box droppable'></div>
+                                <div id='Up' class='direction-selection-box droppable'></div>
+                                <div id='Up_Right' class='direction-selection-box droppable'></div>
+                                <div id='Left' class='direction-selection-box droppable'></div>
+                                <div id='None' class='direction-selection-box droppable'></div>
+                                <div id='Right' class='direction-selection-box droppable'></div>
+                                <div id='Down_Left' class='direction-selection-box droppable'></div>
+                                <div id='Down' class='direction-selection-box droppable'></div>
+                                <div id='Down_Right' class='direction-selection-box droppable'></div>
+                                <img id='ball' class='draggable' src='/static/images/minigame_pitch_diagrams/ball.png'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='row restart-btns-row'>
+            <button type="submit" id="rest-pitch-btn" class="disabled">
+                Restart Pitch
+            </button>
+            <button type="submit" id="rest-btn">
+                Restart<br>Minigame
+            </button>
+        </div>
+        <div id="score" class="row minigame"></div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'module-2-minigame.js') }}"></script>    
+    
+{% endblock %}

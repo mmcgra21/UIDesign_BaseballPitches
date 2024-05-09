@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let pitches = {{pitches|tojson}};
+        let moduleId = {{moduleId|tojson}};
+        console.log(pitches);
+        console.log(moduleId);
+    </script>
+
+    <div id="page_title">
+        <div class='row'>
+            <div class='module-page-title col-8'></div>
+            <div class='return-btn-col col-4'>
+                <button type='submit' id='return-btn'>
+                    <img id='return-icon' src="/static/images/graphics/return_icon.png">
+                    &nbsp; Return
+                </button>
+            </div>
+        </div>
+    </div> 
+    <div id="page_content">
+        <div class='instructions row'>
+            <ul>
+                <li>The goal of this first quiz is to test your knowledge of the fundamentals taught in steps 1 & 2.</li>
+                <li>To complete the quiz, match each of the flashcards with the correct pitch and press the <span class="blue bold">Submit</span> button.</li>
+                <li>To match a flashcard with it’s pitch, drag-and-drop the flashcard to the pitch’s placeholder.</li>
+                <li>Use the <span class="red bold">Restart</span> button to remove each of the flashcards that have already been matched and restart the quiz.</li>
+                <li>After submission you will be given feedback of how many were correct and will be given the option to continue back to the home page or restart the quiz (placeholders will be reshuffled when restarting after submission).</li>
+                <li>Score above a 50% to pass the quiz</li>
+            </ul>
+        </div>
+        <div class='start-btn-row row'>
+            <button type='submit' id='start-btn'>
+                Start
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'module-3.js') }}"></script>    
+    
+{% endblock %}

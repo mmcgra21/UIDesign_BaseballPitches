@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let pitches = {{pitches|tojson}};
+        let pitchId = {{pitchId|tojson}};
+        let moduleId = 1;
+        console.log(pitches);
+        console.log(pitchId);
+    </script>
+
+    <div id="page_title">
+        <div class='row'>
+            <div class='module-page-title col-8'></div>
+        </div>
+    </div> 
+    <div id="page_content">
+        <div class='flashcard-page txt-large'></div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'flashcard-hard.js') }}"></script>    
+    
+{% endblock %}

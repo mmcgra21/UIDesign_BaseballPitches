@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script>
+        let pitches = {{pitches|tojson}};
+        let moduleId = {{moduleId|tojson}};
+        console.log(pitches);
+        console.log(moduleId);
+    </script>
+
+    <div id="page_title">
+        <div class='row'>
+            <div class='module-page-title col-8'></div>
+            <div class='return-btn-col col-4'>
+                <button type='submit' id='return-btn'>
+                    <img id='return-icon' src="/static/images/graphics/return_icon.png">
+                    &nbsp; Return
+                </button>
+            </div>
+        </div>
+    </div> 
+    <div id="page_content">
+        <div class='instructions row'>
+            <ul>
+                <li>The goal of this second quiz is to test how well you can distinguish different type of pitches from an MLB clip (GIF).</li>
+                <li>To complete the quiz, match each of the GIFs with the correct pitch and press the <span class='blue bold'>Submit</span> button.</li>
+                <li><span class="bold">Press on a GIF</span> to enlarge that animation.</li>
+                <li>To match a GIF with it’s pitch, drag-and-drop the GIF to the pitch’s placeholder.</li>
+                <li>Use the <span class="red bold">Restart</span> button to remove each of the GIFs that have already been matched and restart the quiz.</li>
+                <li>After submission you will be given feedback of how many were correct and will be given the option to continue back to the home page or restart the quiz (placeholders will be reshuffled when restarting after submission).</li>
+                <li>Score above a 50% to pass the quiz.</li>
+            </ul>
+        </div>
+        <div class='start-btn-row row'>
+            <button type='submit' id='start-btn'>
+                Start
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'module-5.js') }}"></script>    
+    
+{% endblock %}
